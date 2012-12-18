@@ -2,7 +2,7 @@
 ### An object-oriented approach to integrating multiple OAuth providers with Rails.
 #### Full blog post coming shortly on nycdevshop.com/blog
 
-The OAuth gems go a long way towards making OAuth implantation with Rails apps a pain-free process, but the standard method of implementation (see [here](http://railscasts.com/episodes/360-facebook-authentication) and [here](http://railscasts.com/episodes/359-twitter-integration)) rapidly breaks down on a full scale production app:
+The OAuth gems go a long way towards making OAuth implementation with Rails apps a pain-free process, but the standard method of implementation (see [here](http://railscasts.com/episodes/360-facebook-authentication) and [here](http://railscasts.com/episodes/359-twitter-integration)) rapidly breaks down on a full scale production app:
 
 1. It uses one model, User, to combine both OAuth logic and validations with "Standard User" (i.e, created through a standard sign up form) logic and validations. It doesn't take long for clashes to begin. For example, your Standard User must enter an email and password, but Twitter OAuth provides neither. The only way out is with conditionals and callback hell.
 
@@ -26,7 +26,7 @@ Nice and clean.
 
 The OAuthUser user class can optionally receive an existing User object. If a visitor is already logged in to the app when he adds a new OAuth account, SessionsController passes the current_user object to OAuthUser, which now knows that this new OAuth account is to be **added** to the user object, rather than to create a new User object. (This solves issue 2 above.)
 
-The Policy object pattern is used to cleanly standardize the data hash returned from the OAuth gems. See folder app/policies. (This solves issue 4 above.) Though the Policy object pattern objects is not commonly used in Rails apps, this is an ideal use for them.
+The Policy object pattern is used to cleanly standardize the data hash returned from the OAuth gems. See folder app/policies. (This solves issue 4 above.) Though the Policy object pattern is not commonly used in Rails apps, this is an ideal use-case for them.
 
-Also included in this repo are the Facebook and Foursquare objects, which are POROs for interactions with Facebook and Foursquare. As an example of how the our OAuth usage pattern makes it easy to trigger OAuth-specific callbacks, we have included these objects together with the CheckinCreator object and its corresponding FacebookCheckinPolicy and FoursquareCheckinPolicy policy objects.
+Also included in this repo are the Facebook and Foursquare objects, which are POROs for interactions with Facebook and Foursquare. As an example of how this OAuth implementation makes it easy to trigger OAuth-specific callbacks, we have included these objects together with the CheckinCreator object and its corresponding FacebookCheckinPolicy and FoursquareCheckinPolicy policy objects.
 
