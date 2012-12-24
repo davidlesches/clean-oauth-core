@@ -32,18 +32,24 @@ class OAuthUser
       end
     end
 
+    def account_already_exists?
+      @user.accounts.exists?(provider: @provider, uid: @policy.uid)
+    end
+
     def create_new_account
       create_new_user if @user.nil?
 
-      @account = @user.accounts.create!(
-        :provider      => @provider,
-        :uid           => @policy.uid,
-        :oauth_token   => @policy.oauth_token,
-        :oauth_expires => @policy.oauth_expires,
-        :username      => @policy.username
-      )
+      unless account_already_exists?
+        @account = @user.accounts.create!(
+          :provider      => @provider,
+          :uid           => @policy.uid,
+          :oauth_token   => @policy.oauth_token,
+          :oauth_expires => @policy.oauth_expires,
+          :username      => @policy.username
+        )
 
-      @policy.create_callback(@account)
+        @policy.create_callback(@account)
+      end
     end
 
     def create_new_user

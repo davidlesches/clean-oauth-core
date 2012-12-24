@@ -1,6 +1,7 @@
 # Clean OmniAuth
 ### An object-oriented approach to integrating multiple OAuth providers with Rails.
 #### Full blog post coming shortly on nycdevshop.com/blog
+###### Authored by David Lesches, Lead Dev
 
 The OAuth gems go a long way towards making OAuth implementation with Rails apps a pain-free process, but the standard method of implementation (see [here](http://railscasts.com/episodes/360-facebook-authentication) and [here](http://railscasts.com/episodes/359-twitter-integration)) rapidly breaks down on a full scale production app:
 
