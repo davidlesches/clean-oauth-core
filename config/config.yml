@@ -2,6 +2,7 @@
 
 shared: &shared
   fb_permissions: "email,publish_actions,read_stream"
+  linkedin_permissions: "r_basicprofile r_emailaddress"
 
 development:
   <<: *shared
@@ -16,6 +17,8 @@ development:
   foursquare_push_secret:
   twitter_id:
   twitter_secret:
+  linkedin_id:
+  linkedin_secret:
   ssl_certs: { ca_file: /opt/local/etc/openssl/cert.pem }
 
 production:
@@ -31,4 +34,6 @@ production:
   foursquare_push_secret:
   twitter_id:
   twitter_secret:
+  linkedin_id:
+  linkedin_secret:
   ssl_certs: { ca_path: /etc/ssl/certs }
