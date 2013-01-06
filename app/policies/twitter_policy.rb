@@ -36,6 +36,10 @@ class TwitterPolicy
     nil
   end
 
+  def oauth_secret
+    @auth.credentials.secret
+  end
+
   def create_callback account
   end
 
@@ -57,6 +61,5 @@ class TwitterPolicy
       end
       [first_name, last_name]
     end
-
 
 end

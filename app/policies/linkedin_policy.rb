@@ -1,4 +1,4 @@
-class FoursquarePolicy
+class LinkedinPolicy
 
   def initialize auth
     @auth = auth
@@ -17,7 +17,7 @@ class FoursquarePolicy
   end
 
   def username
-    @auth.info.nickname
+    @auth.info.urls.public_profile
   end
 
   def image_url
@@ -37,15 +37,13 @@ class FoursquarePolicy
   end
 
   def oauth_secret
-    nil
+    @auth.credentials.secret
   end
 
   def create_callback account
-    Foursquare.new(account).delay.refresh_checkins
   end
 
   def refresh_callback account
-    Foursquare.new(account).delay.refresh_checkins
   end
 
 end

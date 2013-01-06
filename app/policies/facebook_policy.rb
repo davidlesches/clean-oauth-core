@@ -36,6 +36,10 @@ class FacebookPolicy
     Time.at(@auth.credentials.expires_at)
   end
 
+  def oauth_secret
+    nil
+  end
+
   def create_callback account
     Facebook.new(account).delay.refresh_friends
   end
