@@ -1,4 +1,4 @@
-# All settings defined here can be accessed anywhere simply by calling APP_CONFIG['key']
+# All settings defined here can be accessed anywhere simply by calling CONFIG['key']
 
 shared: &shared
   fb_permissions: "email,publish_actions,read_stream"

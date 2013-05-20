@@ -41,13 +41,11 @@ class FacebookPolicy
   end
 
   def create_callback account
-    Facebook.new(account).delay.refresh_friends
+    # Place any methods you want to trigger on Facebook OAuth creation here.
   end
 
   def refresh_callback account
-    fb = Facebook.new(account)
-    fb.delay.refresh_friends
-    fb.delay.refresh_checkins
+    # Place any methods you want to trigger on subsequent Facebook OAuth logins here.
   end
 
 end

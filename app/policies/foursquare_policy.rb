@@ -41,11 +41,11 @@ class FoursquarePolicy
   end
 
   def create_callback account
-    Foursquare.new(account).delay.refresh_checkins
+    # Place any methods you want to trigger on Foursquare OAuth creation here.
   end
 
   def refresh_callback account
-    Foursquare.new(account).delay.refresh_checkins
+    # Place any methods you want to trigger on Foursquare OAuth creation here.
   end
 
 end

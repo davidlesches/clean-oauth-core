@@ -1,4 +1,4 @@
-APP_CONFIG = YAML.load_file("#{Rails.root}/config/config.yml")[Rails.env]
+CONFIG = YAML.load_file("#{Rails.root}/config/config.yml")[Rails.env]
 
 OmniAuth.config.logger = Rails.logger
 

@@ -41,9 +41,11 @@ class TwitterPolicy
   end
 
   def create_callback account
+    # Place any methods you want to trigger on Twitter OAuth creation here.
   end
 
   def refresh_callback account
+    # Place any methods you want to trigger on Twitter OAuth creation here.
   end
 
 

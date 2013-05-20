@@ -6,7 +6,6 @@ class OAuthUser
     @auth         = creds
     @user         = user
     @provider     = @auth.provider
-    @is_logged_in = user ? true : false
     @policy       = "#{@provider}_policy".classify.constantize.new(@auth)
   end
 
@@ -15,7 +14,7 @@ class OAuthUser
   end
 
   def logged_in?
-    @is_logged_in
+    @user.present?
   end
 
 
